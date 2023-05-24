@@ -1,0 +1,94 @@
+@primary: #3f51b5;
+
+body{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr 0;
+  position: absolute;
+  grid-template-areas: header-content main-content footer-content;
+}
+
+header{
+  display: flex;
+  height: 6rem;
+  grid-area: header-content;
+  width: 100%;
+  background-color: @primary;
+}
+
+main{
+  width: 100%;
+  height: calc(100% - 10rem);
+  grid-area: main-content;
+}
+
+
+footer{
+  height: 4rem;
+  width: 100%;
+  grid-area: footer-content;
+  background-color: @primary;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  p{
+    color: #fff;
+  }
+}
+
+
+#title{
+  color: white;
+  font-size: 3rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2rem;
+}
+
+
+#footer-links{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  >a{
+      margin-right: 1rem;
+      color: #fff;
+      text-decoration: none;
+  }
+  >a:hover{
+      color: #fff;
+      text-decoration: underline;
+  }
+  .important-text{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+}
+
+
+
+#copyright{
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  >p{
+      margin-left: 1rem;
+      margin-bottom: 0;
+  }
+}
+
+#warranty-message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  >span{
+      color: #fff;
+      text-align: center;
+  }
+}
