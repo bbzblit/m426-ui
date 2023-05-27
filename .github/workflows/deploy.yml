@@ -23,4 +23,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and push
       run: |
+        npm install
+        npm build
         docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/bbzblit/m426-ui/app:latest --push .
