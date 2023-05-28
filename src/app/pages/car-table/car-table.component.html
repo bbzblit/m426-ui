@@ -1,0 +1,40 @@
+<table mat-table [dataSource]="CarDataSource">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Serial number Column -->
+  <ng-container matColumnDef="serialnumber">
+    <th mat-header-cell *matHeaderCellDef> Serial Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.serialnumber}} </td>
+  </ng-container>
+
+  <!-- licence Plate Column -->
+  <ng-container matColumnDef="licenceplate">
+    <th mat-header-cell *matHeaderCellDef> licence Plate </th>
+    <td mat-cell *matCellDef="let element"> {{element.licenceplate}} </td>
+  </ng-container>
+
+  <!-- Brand Column -->
+  <ng-container matColumnDef="brand">
+    <th mat-header-cell *matHeaderCellDef> Brand </th>
+    <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+  </ng-container>
+
+  <!-- Model Column -->
+  <ng-container matColumnDef="model">
+    <th mat-header-cell *matHeaderCellDef> Model </th>
+    <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+  </ng-container>
+
+  <!-- Color Column -->
+  <ng-container matColumnDef="color">
+    <th mat-header-cell *matHeaderCellDef> Color </th>
+    <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
