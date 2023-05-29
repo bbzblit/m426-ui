@@ -9,11 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CarService {
 
-  readonly backendUrl = '/car';
+  readonly backendUrl = '/api/car';
 
   constructor(private http: HttpClient) {}
 
   public getList(): Observable<Car[]> {
-    return this.http.get<Car[]>(environment.backendBaseUrl + this.backendUrl);
+    return this.http.get<Car[]>(this.backendUrl);
   }
 }
