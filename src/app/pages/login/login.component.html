@@ -1,0 +1,15 @@
+<div id="login-form-wrapper">
+    <form  id="login-form">
+        <h1>Log Into the application</h1>
+        <mat-form-field class="login-form-field">
+            <mat-label>Username</mat-label>
+            <input #username matInput required>
+        </mat-form-field>
+
+        <mat-form-field class="login-form-field">
+            <mat-label>Password</mat-label>
+            <input #password type="password" matInput required>
+        </mat-form-field>
+        <button (click)="login($event,username.value, password.value)" mat-stroked-button>Login</button>
+    </form>
+</div>
