@@ -17,15 +17,15 @@ export class CarEditComponent implements OnInit {
   public carForm = new FormGroup({
     serialNumber: new FormControl(0, [Validators.required]),
     licencePlate: new FormControl("", [Validators.required, Validators.maxLength(250)]),
-    brand: new FormControl("",[Validators.required, Validators.maxLength(250)]),
-    model: new FormControl("",[Validators.required, Validators.maxLength(250)]),
-    color: new FormControl("",[Validators.required, Validators.maxLength(250)])
+    brand: new FormControl("", [Validators.required, Validators.maxLength(250)]),
+    model: new FormControl("", [Validators.required, Validators.maxLength(250)]),
+    color: new FormControl("", [Validators.required, Validators.maxLength(250)])
   });
 
-  constructor(private router: Router, private carService: CarService, private route: ActivatedRoute, private formBuilder: FormBuilder){}
+  constructor(private router: Router, private carService: CarService, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   reloadForm() {
-    if(!this.car){
+    if (!this.car) {
       return;
     }
     this.carForm = this.formBuilder.group(this.car) as any;
@@ -34,23 +34,31 @@ export class CarEditComponent implements OnInit {
   ngOnInit(): void {
     const carId = this.route.snapshot.paramMap.get("id");
 
-    if(carId !== null){
-      
+    if (carId !== null) {
+
       this.carService.getCarById(+carId).subscribe({
-        next: (car) => {this.car = car;this.reloadForm()} 
+        next: (car) => { this.car = car; this.reloadForm() }
       })
     }
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['car']);
   }
 
-  createCar(){
+  createCar() {
+    if (!this.car?.id) {
+      let car: Car = this.carForm.getRawValue() as any;
+      this.carService.createCar(car).subscribe({
+        next: () => this.router.navigate(['car']),
+      })
+    } else{
+      let car: Car = {...this.carForm.getRawValue() as any, id: this.car.id };
+      this.carService.updateCar(car).subscribe({
+        next: () => this.router.navigate(['car']),
+      })
 
-    let car: Car = this.carForm.getRawValue() as any;
-    this.carService.createCar(car).subscribe({
-      next: () => this.router.navigate(['car']),
-    }) 
+    }
+
   }
 }

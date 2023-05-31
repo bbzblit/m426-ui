@@ -3,6 +3,7 @@ import { Car } from '../dataaccess/car';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { identifierName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class CarService {
 
   public createCar(car: Car): Observable<Car>{
     return this.http.post<Car>("/api/car", car);
+  }
+
+  public updateCar(car: Car): Observable<Car>{
+    return this.http.put<Car>("/api/car/" + car.id, car);
   }
 }

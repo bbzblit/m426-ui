@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: "car", pathMatch: "full", component: CarTableComponent },
   {path: "login", pathMatch: "full", component: LoginComponent},
   {path: "sign-up", pathMatch: "full", component: SingUpComponent},
-  {path: "car/edit", pathMatch: "full", component: CarEditComponent}
+  {path: "car/edit", pathMatch: "full", component: CarEditComponent},
+  {path: "car/edit/:id", pathMatch: "full", component: CarEditComponent},
 ];
 
 @NgModule({
