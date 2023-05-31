@@ -26,6 +26,6 @@
             <mat-label>Repeat Password</mat-label>
             <input minlength="8" #passwordRepeat type="password" matInput required>
         </mat-form-field>
-        <button [disabled]="password.value != passwordRepeat.value && !registerForm.valid && passwordRepeat.value.length > 0 " (click)="register($event)" mat-stroked-button>Register</button>
+        <button [disabled]="password.value != passwordRepeat.value || !registerForm.valid || passwordRepeat.value.length > 0 " (click)="register($event)" mat-stroked-button>Register</button>
     </form>
 </div>

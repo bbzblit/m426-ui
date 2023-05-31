@@ -26,7 +26,7 @@ export class SingUpComponent {
     console.log("Ready to register");
     this.userService.register(this.registerForm.getRawValue() as User).subscribe({
       next: () => this.router.navigate(['login']),
-      error: (error) => {console.log(error);this._snackBar.open(error.message, "Okay")},
+      error: (error) => {console.log(error);this._snackBar.open(error.error.message || error.error.detail, "Okay")},
     })
 
   }
