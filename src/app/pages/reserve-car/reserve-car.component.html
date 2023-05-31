@@ -2,7 +2,7 @@
     <form (submit)="reserveCar($event)" id="car-reservation-form">
 
 
-        <mat-form-field>
+        <mat-form-field class="car-reservation-field">
             <mat-label>Car</mat-label>
             <input #selectedCar (input)="filterCar(selectedCar.value)" required type="text"
                    placeholder="Select User"
@@ -15,7 +15,7 @@
             </mat-autocomplete>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field class="car-reservation-field">
             <mat-label>Enter a date range</mat-label>
             <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
               <input matStartDate formControlName="start" placeholder="Start date">

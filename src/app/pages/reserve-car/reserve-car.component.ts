@@ -84,6 +84,6 @@ export class ReserveCarComponent implements OnInit {
   }
 
   filterCar(key: string){
-    this.previewCars = this.cars.filter(car => car.licencePlate === key);
+    this.previewCars = this.cars.filter(car => car.licencePlate.indexOf(key) !== -1);
   }
 }
