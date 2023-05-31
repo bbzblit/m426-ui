@@ -17,6 +17,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { SingUpComponent } from './pages/sing-up/sing-up.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarEditComponent } from './pages/car-edit/car-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarTableComponent,
     LoginComponent,
     LogoutComponent,
-    SingUpComponent
+    SingUpComponent,
+    CarEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatSnackBarModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

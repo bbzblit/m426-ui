@@ -1,0 +1,30 @@
+<div id="car-edit-wrapper">
+    <form (submit)="createCar()" [formGroup]="carForm" id="car-edit-form">
+        <mat-form-field class="car-edit-form-field">
+            <mat-label>SerialNumber</mat-label>
+            <input appAutofocus formControlName="serialNumber" matInput maxlength="250" required>
+        </mat-form-field>
+        <mat-form-field class="car-edit-form-field">
+            <mat-label>LicencePlate</mat-label>
+            <input appAutofocus formControlName="licencePlate" matInput maxlength="250" required>
+        </mat-form-field>
+
+        <mat-form-field class="car-edit-form-field">
+            <mat-label>Brand</mat-label>
+            <input appAutofocus formControlName="brand" matInput maxlength="250" required>
+        </mat-form-field>
+        <mat-form-field class="car-edit-form-field">
+            <mat-label>Model</mat-label>
+            <input appAutofocus formControlName="model" matInput maxlength="250" required>
+        </mat-form-field>
+        <mat-form-field class="car-edit-form-field">
+            <mat-label>Color</mat-label>
+            <input appAutofocus formControlName="color" matInput maxlength="250" required>
+        </mat-form-field>
+
+        <div id="car-form-action">
+            <button (click)="goBack()" mat-stroked-button color="warn">Go Back</button>
+            <button [disabled]="false" mat-stroked-button color="basic">{{car?.id ? 'Update Car' : 'Save Car'}}</button>
+        </div>
+    </form>
+</div>
