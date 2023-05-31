@@ -4,7 +4,7 @@
 
         <mat-form-field>
             <mat-label>Car</mat-label>
-            <input #selectedCar (input)="filterCar(selectedCar.value)" type="text"
+            <input #selectedCar (input)="filterCar(selectedCar.value)" required type="text"
                    placeholder="Select User"
                    matInput
                    [matAutocomplete]="auto">
@@ -31,8 +31,8 @@
           
 
         <div id="car-reservation-form-action">
-            <button (click)="goBack()" mat-stroked-button color="warn">Go Back</button>
-            <button [disabled]="false" mat-stroked-button color="basic">Create Reservaton</button>
+            <button (click)="goBack($event)" mat-stroked-button color="warn">Go Back</button>
+            <button [disabled]="!loadedCar" mat-stroked-button color="basic">Create Reservaton</button>
         </div>
     </form>
 </div>

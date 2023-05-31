@@ -14,4 +14,8 @@ export class ReservationService {
     return this.http.post<Reservation>("/api/v1/reservation", reservation);
   }
 
+  public getReservations(): Observable<Array<Reservation>>{
+    return this.http.get<Array<Reservation>>("/api/v1/reservation");
+  }
+
 }

@@ -7,6 +7,7 @@ import { CarService } from 'src/app/service/car.service';
 import { UserService } from 'src/app/service/user.service';
 import { Reservation } from 'src/app/dataaccess/reservation';
 import { ReservationService } from 'src/app/service/reservation.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-reserve-car',
@@ -30,7 +31,7 @@ export class ReserveCarComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
 
-  constructor(private carService: CarService, private route: ActivatedRoute, private router: Router, private userService: UserService, private reservationService: ReservationService){}
+  constructor(private carService: CarService, private route: ActivatedRoute, private router: Router, private userService: UserService, private reservationService: ReservationService, private _snakBar: MatSnackBar){}
 
   reloadCars(){
     this.previewCars = [...this.cars];
@@ -57,7 +58,8 @@ export class ReserveCarComponent implements OnInit {
     return date;
   }
 
-  goBack(){
+  goBack(event: Event){
+    event.preventDefault();
     this.router.navigate(['reservation']);
   }
 
@@ -71,7 +73,8 @@ export class ReserveCarComponent implements OnInit {
     };
 
     this.reservationService.reserveCar(reservation).subscribe({
-      next: (reservation) => console.log(reservation)
+      next: (reservation) => this.router.navigate(['car', 'reservation']),
+      error: (error) => this._snakBar.open(error.error.message || error.error.detail, "Okay")
     });
 
   }

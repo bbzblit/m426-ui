@@ -22,6 +22,7 @@ import { ReserveCarComponent } from './pages/reserve-car/reserve-car.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { ReservationListComponent } from './pages/reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     SingUpComponent,
     CarEditComponent,
     ReserveCarComponent,
+    ReservationListComponent,
   ],
   imports: [
     BrowserModule,
