@@ -12,13 +12,16 @@ import { CarTableComponent } from './pages/car-table/car-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import {MatButtonModule} from '@angular/material/button'; 
-import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LogoutComponent } from './pages/logout/logout.component'; 
+import {MatIcon, MatIconModule} from '@angular/material/icon'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     CarTableComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTableModule,
     HttpClientModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

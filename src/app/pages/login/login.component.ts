@@ -15,7 +15,7 @@ export class LoginComponent {
   login(event: Event, username: string, password: string){
     event.preventDefault();
     this.userService.login(username, password).subscribe({
-      next: () => this.router.navigate(['car']),
+      next: () => window.location.href = "/car",
       error: () =>  this._snackBar.open("Wrong Username or Password", "Okay")
     })
   }
