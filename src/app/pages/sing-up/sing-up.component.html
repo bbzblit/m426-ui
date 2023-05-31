@@ -1,0 +1,31 @@
+<div id="register-form-wrapper">
+    <form [formGroup]="registerForm" id="register-form">
+        <h1>Register</h1>
+        <mat-form-field class="register-form-field">
+            <mat-label>Username</mat-label>
+            <input formControlName="username"  matInput required>
+        </mat-form-field>
+
+        <mat-form-field  class="register-form-field">
+            <mat-label>Firstname</mat-label>
+            <input formControlName="firstname" matInput required>
+        </mat-form-field>
+        <mat-form-field  class="register-form-field">
+            <mat-label>Lastname</mat-label>
+            <input formControlName="lastname" matInput required>
+        </mat-form-field>
+        <mat-form-field class="register-form-field">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" name="email" matInput required>
+        </mat-form-field>
+        <mat-form-field class="register-form-field">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" #password type="password" matInput required>
+        </mat-form-field>
+        <mat-form-field class="register-form-field">
+            <mat-label>Repeat Password</mat-label>
+            <input minlength="8" #passwordRepeat type="password" matInput required>
+        </mat-form-field>
+        <button [disabled]="password.value != passwordRepeat.value && !registerForm.valid && passwordRepeat.value.length > 0 " (click)="register($event)" mat-stroked-button>Register</button>
+    </form>
+</div>
