@@ -60,7 +60,7 @@ export class ReserveCarComponent implements OnInit {
 
   goBack(event: Event){
     event.preventDefault();
-    this.router.navigate(['reservation']);
+    this.router.navigate(['car', 'reservation']);
   }
 
   reserveCar(event: Event){
