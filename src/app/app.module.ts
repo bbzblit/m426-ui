@@ -18,6 +18,11 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { SingUpComponent } from './pages/sing-up/sing-up.component'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarEditComponent } from './pages/car-edit/car-edit.component';
+import { ReserveCarComponent } from './pages/reserve-car/reserve-car.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { ReservationListComponent } from './pages/reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,8 @@ import { CarEditComponent } from './pages/car-edit/car-edit.component';
     LogoutComponent,
     SingUpComponent,
     CarEditComponent,
+    ReserveCarComponent,
+    ReservationListComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,9 @@ import { CarEditComponent } from './pages/car-edit/car-edit.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

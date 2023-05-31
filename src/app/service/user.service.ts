@@ -26,4 +26,8 @@ export class UserService {
     return this.http.post("/api/v1/register", user);
   }
 
+  public getList(): Observable<Array<User>>{
+    return this.http.get<Array<User>>("/api/v1/user");
+  }
+
 }
