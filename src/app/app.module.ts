@@ -10,12 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import { CarTableComponent } from './pages/car-table/car-table.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LoginComponent } from './pages/login/login.component';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LogoutComponent } from './pages/logout/logout.component'; 
+import {MatIcon, MatIconModule} from '@angular/material/icon'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarTableComponent
+    CarTableComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
