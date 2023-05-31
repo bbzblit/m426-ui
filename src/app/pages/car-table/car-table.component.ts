@@ -11,7 +11,7 @@ import { CarService } from 'src/app/service/car.service';
   styleUrls: ['./car-table.component.less']
 })
 export class CarTableComponent {
-  displayedColumns: string[] = ['id', 'serialnumber', 'licenceplate', 'brand', 'color', 'action'];
+  displayedColumns: string[] = ['id', 'serialnumber', 'licenceplate', 'brand', "model" ,'color', 'action'];
   CarDataSource = new MatTableDataSource<Car>();
 
   constructor(private carService: CarService, private router: Router, private _snakBar: MatSnackBar) {}
