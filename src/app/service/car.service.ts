@@ -16,4 +16,12 @@ export class CarService {
   public getList(): Observable<Car[]> {
     return this.http.get<Car[]>(this.backendUrl);
   }
+
+  public getCarById(id: number): Observable<Car>{
+    return this.http.get<Car>("/api/car/" + id);
+  }
+
+  public createCar(car: Car): Observable<Car>{
+    return this.http.post<Car>("/api/car", car);
+  }
 }
