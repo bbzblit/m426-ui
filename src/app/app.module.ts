@@ -14,14 +14,17 @@ import { LoginComponent } from './pages/login/login.component';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LogoutComponent } from './pages/logout/logout.component'; 
-import {MatIcon, MatIconModule} from '@angular/material/icon'; 
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { SingUpComponent } from './pages/sing-up/sing-up.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarTableComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    SingUpComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

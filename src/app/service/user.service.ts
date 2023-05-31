@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from '../dataaccess/user';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,15 @@ export class UserService {
   }
 
   public whoami(){
-    return this.http.get("/api/v1/user");
+    return this.http.get<User>("/api/v1/user");
   }
 
   public logout(){
     return this.http.post("/api/v1/logout",{});
+  }
+
+  public register(user: User){
+    return this.http.post("/api/v1/register", user);
   }
 
 }
