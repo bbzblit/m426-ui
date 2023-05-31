@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarEditComponent } from './pages/car-edit/car-edit.component';
 import { CarTableComponent } from './pages/car-table/car-table.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ReserveCarComponent } from './pages/reserve-car/reserve-car.component';
 import { SingUpComponent } from './pages/sing-up/sing-up.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: "sign-up", pathMatch: "full", component: SingUpComponent},
   {path: "car/edit", pathMatch: "full", component: CarEditComponent},
   {path: "car/edit/:id", pathMatch: "full", component: CarEditComponent},
+  {path: "car/reservation/new", pathMatch: "full", "component": ReserveCarComponent}
 ];
 
 @NgModule({
