@@ -15,7 +15,7 @@ export class CarEditComponent implements OnInit {
   public car: Car | null = null;
 
   public carForm = new FormGroup({
-    serialNumber: new FormControl(0, [Validators.required]),
+    serialNumber: new FormControl(0, [Validators.required, Validators.min(0)]),
     licencePlate: new FormControl("", [Validators.required, Validators.maxLength(250)]),
     brand: new FormControl("", [Validators.required, Validators.maxLength(250)]),
     model: new FormControl("", [Validators.required, Validators.maxLength(250)]),
