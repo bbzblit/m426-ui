@@ -3,29 +3,49 @@
         <h1>Register</h1>
         <mat-form-field class="register-form-field">
             <mat-label>Username</mat-label>
-            <input formControlName="username"  matInput required>
+            <input formControlName="username" matInput required>
+            <mat-error *ngIf="registerForm.get('username')?.hasError('required')">Username is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
 
-        <mat-form-field  class="register-form-field">
+        <mat-form-field class="register-form-field">
             <mat-label>Firstname</mat-label>
             <input formControlName="firstname" matInput required>
+            <mat-error *ngIf="registerForm.get('firstname')?.hasError('required')">Firstname is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
-        <mat-form-field  class="register-form-field">
+        <mat-form-field class="register-form-field">
             <mat-label>Lastname</mat-label>
             <input formControlName="lastname" matInput required>
+            <mat-error *ngIf="registerForm.get('lastname')?.hasError('required')">Lastname is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
         <mat-form-field class="register-form-field">
             <mat-label>Email</mat-label>
             <input formControlName="email" type="email" name="email" matInput required>
+            <mat-error *ngIf="registerForm.get('email')?.hasError('required')">Email is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
         <mat-form-field class="register-form-field">
             <mat-label>Password</mat-label>
             <input formControlName="password" #password type="password" matInput required>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('required')">Password is
+                <strong>required</strong>!</mat-error>
+            <mat-error
+                *ngIf="password.value != passwordRepeat.value && !registerForm.get('password')?.hasError('required')">The
+                password have to be <strong>equal!</strong></mat-error>
         </mat-form-field>
+
         <mat-form-field class="register-form-field">
             <mat-label>Repeat Password</mat-label>
-            <input minlength="8" #passwordRepeat type="password" matInput required>
+            <input [formControl]="retypePassword" minlength="8" #passwordRepeat type="password" matInput required>
+            <mat-error *ngIf="retypePassword.hasError('required')">Pleas type in the password again!</mat-error>
+
+            <mat-error *ngIf="password.value != retypePassword.value">The password have to be
+                <strong>equal</strong>!</mat-error>
         </mat-form-field>
-        <button [disabled]="password.value != passwordRepeat.value || !registerForm.valid || passwordRepeat.value.length == 0 " (click)="register($event)" mat-stroked-button>Register</button>
+        <button id="register-button"
+            [disabled]="password.value != passwordRepeat.value || !registerForm.valid || passwordRepeat.value.length == 0 "
+            (click)="register($event)" mat-stroked-button>Register</button>
     </form>
 </div>

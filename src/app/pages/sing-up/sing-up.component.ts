@@ -20,6 +20,8 @@ export class SingUpComponent {
     password: new FormControl("", [Validators.required, Validators.minLength(8)])
   });
 
+  public retypePassword = new FormControl("", [Validators.required]);
+
   public constructor(private userService: UserService, private router: Router, private _snackBar: MatSnackBar){}
 
   register(event: Event){
