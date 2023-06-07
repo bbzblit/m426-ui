@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Car } from '../dataaccess/car';
+import { Car } from '../dataaccess/car.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -12,25 +12,49 @@ export class CarService {
 
   readonly backendUrl = '/api/car';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
+  /**
+   * Get all cars
+   * @returns list of cars
+   */
   public getList(): Observable<Car[]> {
     return this.http.get<Car[]>(this.backendUrl);
   }
 
-  public getCarById(id: number): Observable<Car>{
+  /**
+   * Get specific car by id
+   * @param id the car id
+   * @returns the car
+   */
+  public getCarById(id: number): Observable<Car> {
     return this.http.get<Car>("/api/car/" + id);
   }
 
-  public createCar(car: Car): Observable<Car>{
+  /**
+   * Method to create a new Car
+   * @param car The new Car
+   * @returns The new Car
+   */
+  public createCar(car: Car): Observable<Car> {
     return this.http.post<Car>("/api/car", car);
   }
 
-  public updateCar(car: Car): Observable<Car>{
+  /**
+   * Method to update a Car
+   * @param car new Values for the Car
+   * @returns Updated car
+   */
+  public updateCar(car: Car): Observable<Car> {
     return this.http.put<Car>("/api/car/" + car.id, car);
   }
 
-  public deleteCar(id: number): Observable<void>{
+  /**
+   * Method to delete a car
+   * @param id the car id
+   * @returns Observable with nothing in it...
+   */
+  public deleteCar(id: number): Observable<void> {
     return this.http.delete<void>("/api/car/" + id);
   }
 }

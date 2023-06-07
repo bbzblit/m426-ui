@@ -1,5 +1,5 @@
-import { Car } from "./car";
-import { User } from "./user";
+import { Car } from "./car.model";
+import { User } from "./user.model";
 
 export interface Reservation{
     id?: number,
