@@ -3,13 +3,17 @@
         <h1>Log Into Carent</h1>
         <mat-form-field class="login-form-field">
             <mat-label>Username</mat-label>
-            <input #username matInput required>
+            <input [formControl]="username" matInput required>
+            <mat-error *ngIf="username.hasError('required')">Username is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
 
         <mat-form-field class="login-form-field">
             <mat-label>Password</mat-label>
-            <input #password type="password" matInput required>
+            <input [formControl]="password" type="password" matInput required>
+            <mat-error *ngIf="password.hasError('required')">Password is
+                <strong>required</strong>!</mat-error>
         </mat-form-field>
-        <button (click)="login($event,username.value, password.value)" mat-stroked-button>Login</button>
+        <button (click)="login($event)" mat-stroked-button>Login</button>
     </form>
 </div>
