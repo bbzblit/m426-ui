@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Car } from 'src/app/dataaccess/car';
-import { User } from 'src/app/dataaccess/user';
+import { Car } from 'src/app/dataaccess/car.model';
+import { User } from 'src/app/dataaccess/user.model';
 import { CarService } from 'src/app/service/car.service';
 import { UserService } from 'src/app/service/user.service';
-import { Reservation } from 'src/app/dataaccess/reservation';
+import { Reservation } from 'src/app/dataaccess/reservation.model';
 import { ReservationService } from 'src/app/service/reservation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -31,9 +31,10 @@ export class ReserveCarComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
 
-  constructor(private carService: CarService, private route: ActivatedRoute, private router: Router, private userService: UserService, private reservationService: ReservationService, private _snakBar: MatSnackBar){}
+  constructor(private carService: CarService, private route: ActivatedRoute, private router: Router,
+    private userService: UserService, private reservationService: ReservationService, private _snakBar: MatSnackBar) { }
 
-  reloadCars(){
+  reloadCars() {
     this.previewCars = [...this.cars];
   }
 
@@ -45,7 +46,7 @@ export class ReserveCarComponent implements OnInit {
     })
 
     this.carService.getList().subscribe({
-      next: (cars) => {this.cars = cars;this.reloadCars()}
+      next: (cars) => { this.cars = cars; this.reloadCars() }
     })
 
     this.userService.getList().subscribe({
@@ -53,17 +54,17 @@ export class ReserveCarComponent implements OnInit {
     })
   }
 
-  inOneHour(date: Date){
+  inOneHour(date: Date) {
     date.setHours(date.getHours() + 1)
     return date;
   }
 
-  goBack(event: Event){
+  goBack(event: Event) {
     event.preventDefault();
     this.router.navigate(['car', 'reservation']);
   }
 
-  reserveCar(event: Event){
+  reserveCar(event: Event) {
     event.preventDefault();
     let date = this.range.getRawValue();
     let reservation: Reservation = {
@@ -79,11 +80,11 @@ export class ReserveCarComponent implements OnInit {
 
   }
 
-  loadCar(car: Car){
+  loadCar(car: Car) {
     this.loadedCar = car;
   }
 
-  filterCar(key: string){
+  filterCar(key: string) {
     this.previewCars = this.cars.filter(car => car.licencePlate.indexOf(key) !== -1);
   }
 }

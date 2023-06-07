@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Car } from '../dataaccess/car';
+import { Car } from '../dataaccess/car.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';

@@ -2,7 +2,7 @@ import { NotExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Car } from 'src/app/dataaccess/car';
+import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
 @Component({

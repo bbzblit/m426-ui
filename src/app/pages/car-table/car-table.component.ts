@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Car } from 'src/app/dataaccess/car';
+import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
 @Component({
