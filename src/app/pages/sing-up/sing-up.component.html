@@ -46,6 +46,6 @@
         </mat-form-field>
         <button id="register-button"
             [disabled]="password.value != passwordRepeat.value || !registerForm.valid || passwordRepeat.value.length == 0 "
-            (click)="register($event)" mat-stroked-button>Register</button>
+            (click)="register()" mat-stroked-button>Register</button>
     </form>
 </div>

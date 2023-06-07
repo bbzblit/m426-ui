@@ -14,13 +14,18 @@ export class LoginComponent {
   public username = new FormControl("", [Validators.required]);
   public password = new FormControl("", [Validators.required]);
 
-  constructor(private userService: UserService, private _snackBar: MatSnackBar, private router: Router){}
+  constructor(private userService: UserService, private _snackBar: MatSnackBar, private router: Router) { }
 
-  login(event: Event){
+  /**
+   * Method that gets executed when user presses the loggin button
+   * @param event Thrown event
+   */
+  login(event: Event) {
     event.preventDefault();
     this.userService.login(this.username.value!, this.password.value!).subscribe({
-      next: () => window.location.href = "/car",
-      error: () =>  this._snackBar.open("Wrong Username or Password", "Okay")
+      next: () => window.location.href = "/car", //Redirects on success (By reloading the page thats why not router gets used. 
+      //I have to reload it becaue we aren't using a State manager... which is just sometimes annoying...)
+      error: () => this._snackBar.open("Wrong Username or Password", "Okay") //Shows that login failed caused by wrong password or username
     })
   }
 
