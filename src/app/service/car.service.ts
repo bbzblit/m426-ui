@@ -10,8 +10,6 @@ import { identifierName, ReturnStatement } from '@angular/compiler';
 })
 export class CarService {
 
-  readonly backendUrl = '/api/car';
-
   constructor(private http: HttpClient) { }
 
   /**
@@ -19,7 +17,7 @@ export class CarService {
    * @returns list of cars
    */
   public getList(): Observable<Car[]> {
-    return this.http.get<Car[]>(this.backendUrl);
+    return this.http.get<Array<Car>>("/api/v1/car");
   }
 
   /**
@@ -28,7 +26,7 @@ export class CarService {
    * @returns the car
    */
   public getCarById(id: number): Observable<Car> {
-    return this.http.get<Car>("/api/car/" + id);
+    return this.http.get<Car>("/api/v1/car/" + id);
   }
 
   /**
@@ -37,7 +35,7 @@ export class CarService {
    * @returns The new Car
    */
   public createCar(car: Car): Observable<Car> {
-    return this.http.post<Car>("/api/car", car);
+    return this.http.post<Car>("/api/v1/car", car);
   }
 
   /**
@@ -46,7 +44,7 @@ export class CarService {
    * @returns Updated car
    */
   public updateCar(car: Car): Observable<Car> {
-    return this.http.put<Car>("/api/car/" + car.id, car);
+    return this.http.put<Car>("/api/v1/car/" + car.id, car);
   }
 
   /**
@@ -55,6 +53,6 @@ export class CarService {
    * @returns Observable with nothing in it...
    */
   public deleteCar(id: number): Observable<void> {
-    return this.http.delete<void>("/api/car/" + id);
+    return this.http.delete<void>("/api/v1/car/" + id);
   }
 }
