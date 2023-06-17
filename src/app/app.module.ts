@@ -24,6 +24,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReservationListComponent } from './pages/reservation-list/reservation-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UserOverviewComponent } from './pages/user-overview/user-overview.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CarEditComponent,
     ReserveCarComponent,
     ReservationListComponent,
+    UserOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

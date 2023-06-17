@@ -50,7 +50,11 @@ export class UserService {
    * @returns An Array of all users
    */
   public getList(): Observable<Array<User>> {
-    return this.http.get<Array<User>>("/api/v1/user");
+    return this.http.get<Array<User>>("/api/v1/users");
+  }
+
+  public updateUser(user: User): Observable<User>{
+    return this.http.put<User>(`/api/v1/user/${user.id}`, user);
   }
 
 }
