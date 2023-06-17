@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
 export class UserOverviewComponent {
 
 
-  displayedColumns: string[] = ['lastName', 'firstName', 'username', 'email', 'employee']; //Columns that get shown in the table
+  displayedColumns: string[] = ['lastName', 'firstName', 'username', 'email', 'employee', 'action']; //Columns that get shown in the table
 
   public users: Array<User> = [];
   public previewUsers: Array<User> = [];
@@ -61,5 +61,11 @@ export class UserOverviewComponent {
     this.userService.updateUser(user).subscribe({
       next: () => this._snakBar.open("Successful updated the User status :)", "Got it")
     });
+  }
+
+  deleteUser(id: number){
+    this.userService.deleteUser(id).subscribe({
+      next: () => {this.users = this.users.filter(user => user.id !== id); this.updatePreviewUsers();this._snakBar.open("Successful deleted the user", "Got It")}
+    })
   }
 }

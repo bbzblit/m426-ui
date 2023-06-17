@@ -57,4 +57,8 @@ export class UserService {
     return this.http.put<User>(`/api/v1/user/${user.id}`, user);
   }
 
+  public deleteUser(id: number): Observable<void>{
+    return this.http.delete<void>(`/api/v1/user/${id}`)
+  }
+
 }
