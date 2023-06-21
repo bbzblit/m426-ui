@@ -17,7 +17,7 @@ export class LogoutComponent implements OnInit {
   updateLoginStatus() {
     this.userService.whoami().subscribe({
       next: () => this.isLogedIn = true,
-      error: () => { this.isLogedIn = false; this.router.navigate(['login']); },
+      error: () => { this.isLogedIn = false; if (window.location.pathname != "/sign-up") { this.router.navigate(['login']); } },
     })
   }
 
