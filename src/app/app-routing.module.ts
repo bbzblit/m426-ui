@@ -16,8 +16,9 @@ const routes: Routes = [
   {path: "car/edit/:id", pathMatch: "full", component: CarEditComponent},
   {path: "car/reservation/new", pathMatch: "full", "component": ReserveCarComponent},
   {path: "car/reservation", pathMatch: "full", "component": ReservationListComponent},
-  {path: "user", pathMatch: "full", "component": UserOverviewComponent}
-
+  {path: "car/reservation/today", pathMatch: "full", "component": ReservationListComponent},
+  {path: "user", pathMatch: "full", "component": UserOverviewComponent},
+  {path: "", pathMatch: "prefix", redirectTo: "/login"}
 ];
 
 @NgModule({

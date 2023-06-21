@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
@@ -11,12 +12,12 @@ export class LogoutComponent implements OnInit {
 
   public isLogedIn = false;
 
-  constructor(private userService: UserService, private router: Router){}
+  constructor(private userService: UserService, private router: Router) { }
 
-  updateLoginStatus(){
+  updateLoginStatus() {
     this.userService.whoami().subscribe({
       next: () => this.isLogedIn = true,
-      error: () => this.isLogedIn = false,
+      error: () => { this.isLogedIn = false; this.router.navigate(['login']); },
     })
   }
 
@@ -24,7 +25,7 @@ export class LogoutComponent implements OnInit {
     this.updateLoginStatus();
   }
 
-  logout(){
+  logout() {
     this.userService.logout().subscribe();
     this.isLogedIn = false;
     this.router.navigate(['login']);
