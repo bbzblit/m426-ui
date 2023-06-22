@@ -1,6 +1,7 @@
 <div id="car-list-wrapper">
   <div id="add-car-button-wrapper">
-    <button id="add-car-button" mat-icon-button [routerLink]="['edit']" color="primary">
+    <button id="add-car-button" mat-icon-button [routerLink]="overrideDefault ? ['/car', 'reservation', 'new' ] :
+      ['edit'] " color="primary">
       <mat-icon>add</mat-icon>
     </button>
   </div>

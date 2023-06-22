@@ -55,4 +55,8 @@ export class CarService {
   public deleteCar(id: number): Observable<void> {
     return this.http.delete<void>("/api/v1/car/" + id);
   }
+
+  public getAvialbaleCars(startDate: Date, endDate: Date): Observable<Array<Car>> {
+    return this.http.get<Array<Car>>(`api/v1/car/available?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}`)
+  }
 }
