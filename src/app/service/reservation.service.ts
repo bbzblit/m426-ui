@@ -27,4 +27,8 @@ export class ReservationService {
     return this.http.get<Array<Reservation>>("/api/v1/reservation");
   }
 
+  public revokeReservation(id: number): Observable<void> {
+    return this.http.delete<void>(`/api/v1/reservation/${id}`);
+  }
+
 }
