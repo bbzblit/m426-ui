@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
-  title = 'm426';
+export class AppComponent implements OnInit {
+
+  constructor(private dateAdapter: DateAdapter<Date>){}
+
+  ngOnInit(): void {
+    this.dateAdapter.setLocale("de-CH");
+  }
 }

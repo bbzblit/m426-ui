@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, isFormGroup } from '@angular/forms';
+import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
@@ -7,7 +8,10 @@ import { CarService } from 'src/app/service/car.service';
 @Component({
   selector: 'app-available-car-page',
   templateUrl: './available-car-page.component.html',
-  styleUrls: ['./available-car-page.component.less']
+  styleUrls: ['./available-car-page.component.less'],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'de-CH' }
+  ]
 })
 export class AvailableCarPageComponent implements OnInit {
 
