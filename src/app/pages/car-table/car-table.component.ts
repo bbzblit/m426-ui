@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
@@ -19,6 +19,7 @@ export class CarTableComponent {
   public index = 0;
   public pageSize = 10;
   @Input() public overrideDefault = false;
+  @Input() updateCarEvent?: Observable<void>;
 
   constructor(private carService: CarService, private router: Router, private _snakBar: MatSnackBar) { }
 
@@ -27,12 +28,12 @@ export class CarTableComponent {
       this.reloadData();
     } else {
       this.reloadData();
-      this.displayedColumns.pop();
+      this.displayedColumns = ['licenceplate', 'brand', "model", 'color'];
+      this.updateCarEvent?.subscribe(() => this.updatePreviewCars());
     }
   }
 
   updatePreviewCars() {
-    console.log(this.cars)
     const length = this.cars.length;
     if (this.pageSize * (this.index + 1) > length) {
       this.previewCars = this.cars.slice(this.pageSize * this.index, length);
