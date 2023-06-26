@@ -26,7 +26,9 @@ import { ReservationListComponent } from './pages/reservation-list/reservation-l
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserOverviewComponent } from './pages/user-overview/user-overview.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { AvailableCarPageComponent } from './pages/available-car-page/available-car-page.component'; 
+import { AvailableCarPageComponent } from './pages/available-car-page/available-car-page.component';
+import { MenuComponent } from './components/menu/menu.component'; 
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { AvailableCarPageComponent } from './pages/available-car-page/available-
     ReservationListComponent,
     UserOverviewComponent,
     AvailableCarPageComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { AvailableCarPageComponent } from './pages/available-car-page/available-
     MatNativeDateModule,
     MatPaginatorModule,
     MatCheckboxModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
