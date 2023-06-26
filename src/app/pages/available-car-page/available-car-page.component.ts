@@ -16,17 +16,18 @@ import { CarService } from 'src/app/service/car.service';
 export class AvailableCarPageComponent implements OnInit {
 
   public cars: Array<Car> = [];
-  public updateCarEvent: Subject<void> = new Subject<void>();
+  public lastEnd: Date = new Date();
+  public updateCarEvent: Subject<Array<Car>> = new Subject<Array<Car>>();
   public range = new FormGroup({
     start: new FormControl<Date>(new Date()),
-    end: new FormControl<Date>(new Date()),
+    end: new FormControl<Date>(this.lastEnd),
   }); //FormControll to evaluate start and end date of reservation
 
   constructor(private carService: CarService) { }
 
   ngOnInit(): void {
     this.carService.getAvialbaleCars(new Date(), new Date()).subscribe({
-      next: (cars) => this.cars = cars
+      next: (cars) => {this.cars = cars;this.updateCarEvent.next(cars)}
     });
   }
 
@@ -35,8 +36,12 @@ export class AvailableCarPageComponent implements OnInit {
     if (!form.start || !form.end) {
       return;
     }
+    if (this.lastEnd === form.end) {
+      return;
+    }
+    this.lastEnd = form.end;
     this.carService.getAvialbaleCars(new Date(form.start.getTime() - (form.start.getTimezoneOffset() * 60000)),
-      new Date(form.end.getTime() - (form.end.getTimezoneOffset() * 60000))).subscribe(cars => { this.cars = cars; this.updateCarEvent.next() });
+      new Date(form.end.getTime() - (form.end.getTimezoneOffset() * 60000))).subscribe(cars => { this.cars = cars; this.updateCarEvent.next(cars) });
   }
 
 }
