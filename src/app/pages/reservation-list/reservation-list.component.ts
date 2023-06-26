@@ -17,6 +17,7 @@ export class ReservationListComponent implements OnInit {
   public index = 0;
   public pageSize = 10;
 
+
   constructor(private reservationService: ReservationService, private _snakBar: MatSnackBar) {
 
   }
@@ -25,9 +26,16 @@ export class ReservationListComponent implements OnInit {
    * Fetches all active reservations of user on component load
    */
   ngOnInit(): void {
-    this.reservationService.getReservations().subscribe({
-      next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
-    })
+    if(window.location.pathname === "/car/reservation/today" ){
+      this.displayedColumns.pop();
+      this.reservationService.getReservationOfToday().subscribe({
+        next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
+      })  
+    } else{
+      this.reservationService.getReservations().subscribe({
+        next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
+      })  
+    }
   }
 
   /**

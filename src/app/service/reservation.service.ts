@@ -31,4 +31,8 @@ export class ReservationService {
     return this.http.delete<void>(`/api/v1/reservation/${id}`);
   }
 
+  public getReservationOfToday(): Observable<Array<Reservation>>{
+    return this.http.get<Array<Reservation>>("/api/v1/reservation/today");  
+  }
+
 }

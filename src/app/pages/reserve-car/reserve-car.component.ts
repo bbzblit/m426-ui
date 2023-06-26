@@ -52,15 +52,6 @@ export class ReserveCarComponent implements OnInit {
     })
   }
 
-  /**
-   * Method to get a new date object in exactly 1 hour
-   * @param date start time
-   * @returns time in one hour
-   */
-  inOneHour(date: Date) {
-    date.setHours(date.getHours() + 1)
-    return date;
-  }
 
   /**
    * Method to go back to reservation overview 
@@ -78,14 +69,18 @@ export class ReserveCarComponent implements OnInit {
   reserveCar(event: Event) {
     event.preventDefault();
     let date = this.range.getRawValue();
+    console.log(date);
+    if(!date.end || !date.start){
+      return;
+    }
     let reservation: Reservation = {
       car: this.loadedCar!,
-      end: date.end!,
-      start: date.start!,
+      end: new Date(date.end?.getTime() - (date.end.getTimezoneOffset() * 60000)),
+      start: new Date(date.start?.getTime() - (date.start.getTimezoneOffset() * 60000)),
     };
 
     this.reservationService.reserveCar(reservation).subscribe({
-      next: (reservation) => this.router.navigate(['car', 'reservation']), //Redirect back if everything went sucessful
+      next: (reservation) => this.router.navigate(['car', 'reservation']) , //Redirect back if everything went sucessful
       error: (error) => this._snakBar.open(error.error.message || error.error.detail, "Okay") //Show potential error message
     });
 

@@ -35,7 +35,8 @@ export class AvailableCarPageComponent implements OnInit {
     if (!form.start || !form.end) {
       return;
     }
-    this.carService.getAvialbaleCars(form.start, form.end).subscribe(cars => {this.cars = cars; this.updateCarEvent.next()});
+    this.carService.getAvialbaleCars(new Date(form.start.getTime() - (form.start.getTimezoneOffset() * 60000)),
+      new Date(form.end.getTime() - (form.end.getTimezoneOffset() * 60000))).subscribe(cars => { this.cars = cars; this.updateCarEvent.next() });
   }
 
 }
