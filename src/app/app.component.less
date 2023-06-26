@@ -1,6 +1,4 @@
-@primary: #3f51b5;
-
-body{
+body {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr 1fr 0;
@@ -8,62 +6,68 @@ body{
   grid-template-areas: header-content main-content footer-content;
 }
 
-header{
+header {
   display: flex;
   height: 6rem;
   grid-area: header-content;
   width: 100%;
-  background-color: @primary;
+  background-color: var(--primary-dark);
 }
 
-main{
-  width: 100%;
-  height: calc(100% - 10rem);
+main {
+  width: calc(100% - 2rem);
+  height: calc(100% - 11rem);
   grid-area: main-content;
+  background-color: var(--background-dark);
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
 }
 
 
-footer{
+footer {
   height: 4rem;
   width: 100%;
   grid-area: footer-content;
-  background-color: @primary;
+  background-color: var(--primary-dark);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
 
-  p{
+  p {
     color: #fff;
   }
 }
 
 
-#title{
+#title {
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
 }
 
 
-#footer-links{
+#footer-links {
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  >a{
-      margin-right: 1rem;
-      color: #fff;
-      text-decoration: none;
+  >a {
+    margin-right: 1rem;
+    color: #fff;
+    text-decoration: none;
   }
-  >a:hover{
-      color: #fff;
-      text-decoration: underline;
+
+  >a:hover {
+    color: #fff;
+    text-decoration: underline;
   }
-  .important-text{
+
+  .important-text {
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -72,33 +76,34 @@ footer{
 
 
 
-#copyright{
+#copyright {
   justify-content: center;
   height: 100%;
   display: flex;
   align-items: center;
-  >p{
-      margin-left: 1rem;
-      margin-bottom: 0;
+
+  >p {
+    margin-left: 1rem;
+    margin-bottom: 0;
   }
 }
 
-#warranty-message{
+#warranty-message {
   display: flex;
   align-items: center;
   justify-content: center;
-  >span{
-      color: #fff;
-      text-align: center;
+
+  >span {
+    color: #fff;
+    text-align: center;
   }
 }
 
 table {
   width: 100%;
 }
-
-
-#root-header{
+#root-button-wrapper,
+#root-header {
   display: flex;
   justify-content: space-between;
   align-items: center;

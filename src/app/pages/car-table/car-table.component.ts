@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
@@ -14,21 +15,25 @@ export class CarTableComponent {
 
   public displayedColumns: string[] = ['id', 'serialnumber', 'licenceplate', 'brand', "model", 'color', 'action'];
   public previewCars: Array<Car> = [];
-  public cars: Array<Car> = [];
+  @Input() public cars: Array<Car> = [];
   public index = 0;
   public pageSize = 10;
-
-  CarDataSource = new MatTableDataSource<Car>();
-
+  @Input() public overrideDefault = false;
+  @Input() updateCarEvent?: Observable<void>;
 
   constructor(private carService: CarService, private router: Router, private _snakBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.reloadData();
+    if (!this.overrideDefault) {
+      this.reloadData();
+    } else {
+      this.reloadData();
+      this.displayedColumns = ['licenceplate', 'brand', "model", 'color'];
+      this.updateCarEvent?.subscribe(() => this.updatePreviewCars());
+    }
   }
 
   updatePreviewCars() {
-    console.log(this.cars)
     const length = this.cars.length;
     if (this.pageSize * (this.index + 1) > length) {
       this.previewCars = this.cars.slice(this.pageSize * this.index, length);

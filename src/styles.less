@@ -1,9 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-@primary: #3f51b5;
 html, body { height: 100%; width: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 app-root{
   height: 100%;
+}
+:root{
+  --primary-dark: #00193f;
+  --secondary-dark: #4a4a4a;
+  --background-dark: #303030;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+mat-label,
+mat-hint{
+  color: white;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: var(--secondary-dark) !important;
+  div{
+    color: white !important;
+  }
+}
+body{
+  background-color: var(--background-dark);
 }

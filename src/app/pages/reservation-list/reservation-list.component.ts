@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Reservation } from 'src/app/dataaccess/reservation.model';
 import { ReservationService } from 'src/app/service/reservation.service';
 
@@ -9,14 +10,15 @@ import { ReservationService } from 'src/app/service/reservation.service';
 })
 export class ReservationListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'car', 'user', 'start', 'end']; //Columns that get shown in the table
+  displayedColumns: string[] = ['id', 'car', 'user', 'start', 'end', 'action']; //Columns that get shown in the table
 
   public reservations: Array<Reservation> = [];
   public previewReservations: Array<Reservation> = [];
   public index = 0;
   public pageSize = 10;
 
-  constructor(private reservationService: ReservationService) {
+
+  constructor(private reservationService: ReservationService, private _snakBar: MatSnackBar) {
 
   }
 
@@ -24,9 +26,16 @@ export class ReservationListComponent implements OnInit {
    * Fetches all active reservations of user on component load
    */
   ngOnInit(): void {
-    this.reservationService.getReservations().subscribe({
-      next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
-    })
+    if(window.location.pathname === "/car/reservation/today" ){
+      this.displayedColumns.pop();
+      this.reservationService.getReservationOfToday().subscribe({
+        next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
+      })  
+    } else{
+      this.reservationService.getReservations().subscribe({
+        next: (reservations) => { this.reservations = reservations; this.updatePreviewReservations() }
+      })  
+    }
   }
 
   /**
@@ -50,6 +59,16 @@ export class ReservationListComponent implements OnInit {
     this.index = event.pageIndex;
     this.pageSize = event.pageSize;
     this.updatePreviewReservations();
+  }
+
+  revokeReservation(id: number) {
+    this.reservationService.revokeReservation(id).subscribe({
+      next: () => {
+        this.reservations = this.reservations.filter(reservation => reservation.id !== id);
+        this.updatePreviewReservations();
+        this._snakBar.open("Successfull deleted the reservation", "Got It")
+      }
+    })
   }
 
 }
