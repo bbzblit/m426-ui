@@ -1,22 +1,22 @@
-<button id="menu-button" mat-button [matMenuTriggerFor]="root">
+<button *ngIf="user" id="menu-button" mat-button [matMenuTriggerFor]="root">
     <p id="menu-text">Menu</p>
 </button>
 
 <mat-menu #root="matMenu">
-    <button mat-menu-item [routerLink]="['/user']">Useroverview <mat-icon>person</mat-icon></button>
+    <button *ngIf="user?.employee" mat-menu-item [routerLink]="['/user']">Useroverview <mat-icon>person</mat-icon></button>
     <button mat-menu-item [matMenuTriggerFor]="car">Car <mat-icon>garage</mat-icon></button>
     <button mat-menu-item [matMenuTriggerFor]="reservation">Reservation <mat-icon>book_online</mat-icon></button>
 </mat-menu>
 
 <mat-menu #car="matMenu">
-    <button mat-menu-item [routerLink]="['/car']">Car Overview <mat-icon>list</mat-icon></button>
-    <button mat-menu-item [routerLink]="['/car', 'edit']">Add Car <mat-icon>add</mat-icon></button>
+    <button *ngIf="user?.employee" mat-menu-item [routerLink]="['/car']">Car Overview <mat-icon>list</mat-icon></button>
+    <button *ngIf="user?.employee" mat-menu-item [routerLink]="['/car', 'edit']">Add Car <mat-icon>add</mat-icon></button>
     <button mat-menu-item [routerLink]="['/car', 'reservation', 'available']">Check availability
         <mat-icon>done</mat-icon></button>
 </mat-menu>
 
 <mat-menu #reservation="matMenu">
-    <button mat-menu-item [routerLink]="['/car', 'reservation', 'today']">Reservation of Today
+    <button *ngIf="user?.employee" mat-menu-item [routerLink]="['/car', 'reservation', 'today']">Reservation of Today
         <mat-icon>today</mat-icon></button>
     <button mat-menu-item [routerLink]="['/car', 'reservation', 'new']">New Reservation
         <mat-icon>add</mat-icon></button>
