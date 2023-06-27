@@ -29,6 +29,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AvailableCarPageComponent } from './pages/available-car-page/available-car-page.component';
 import { MenuComponent } from './components/menu/menu.component'; 
 import {MatMenuModule} from '@angular/material/menu';
+import { HomeComponent } from './pages/home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {MatMenuModule} from '@angular/material/menu';
     UserOverviewComponent,
     AvailableCarPageComponent,
     MenuComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatNativeDateModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

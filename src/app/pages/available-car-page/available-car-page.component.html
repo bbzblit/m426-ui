@@ -14,5 +14,5 @@
             <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
         </mat-form-field>
     </div>
-    <app-car-table [cars]="cars" [updateCarEvent]="updateCarEvent.asObservable()" [overrideDefault]="true"></app-car-table>
+    <app-car-table [cars]="cars" [updateCarEvent]="updateCarEvent" [overrideDefault]="true"></app-car-table>
 </div>

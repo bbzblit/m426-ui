@@ -44,6 +44,7 @@
             <mat-error *ngIf="password.value != retypePassword.value">The password have to be
                 <strong>equal</strong>!</mat-error>
         </mat-form-field>
+        <a [routerLink]="['/login']">Already have an account? - Login</a>
         <button id="register-button"
             [disabled]="password.value != passwordRepeat.value || !registerForm.valid || passwordRepeat.value.length == 0 "
             (click)="register()" mat-stroked-button>Register</button>

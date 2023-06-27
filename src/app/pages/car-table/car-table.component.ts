@@ -19,7 +19,7 @@ export class CarTableComponent {
   public index = 0;
   public pageSize = 10;
   @Input() public overrideDefault = false;
-  @Input() updateCarEvent?: Observable<void>;
+  @Input() updateCarEvent?: Subject<Array<Car>>;
 
   constructor(private carService: CarService, private router: Router, private _snakBar: MatSnackBar) { }
 
@@ -29,11 +29,12 @@ export class CarTableComponent {
     } else {
       this.reloadData();
       this.displayedColumns = ['licenceplate', 'brand', "model", 'color'];
-      this.updateCarEvent?.subscribe(() => this.updatePreviewCars());
+      this.updateCarEvent?.subscribe((cars) => {this.cars = cars;this.updatePreviewCars()});
     }
   }
 
   updatePreviewCars() {
+    console.log(this.cars);
     const length = this.cars.length;
     if (this.pageSize * (this.index + 1) > length) {
       this.previewCars = this.cars.slice(this.pageSize * this.index, length);
