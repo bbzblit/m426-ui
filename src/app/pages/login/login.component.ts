@@ -23,7 +23,7 @@ export class LoginComponent {
   login(event: Event) {
     event.preventDefault();
     this.userService.login(this.username.value!, this.password.value!).subscribe({
-      next: () => window.location.href = "/car", //Redirects on success (By reloading the page thats why not router gets used. 
+      next: () => window.location.href = "/home", //Redirects on success (By reloading the page thats why not router gets used. 
       //I have to reload it becaue we aren't using a State manager... which is just sometimes annoying...)
       error: () => this._snackBar.open("Wrong Username or Password", "Okay") //Shows that login failed caused by wrong password or username
     })
