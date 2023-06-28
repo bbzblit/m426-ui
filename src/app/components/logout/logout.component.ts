@@ -1,5 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
@@ -14,6 +13,10 @@ export class LogoutComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
+  /**
+   * Method that automatic detects if the user isn't longer loged in. 
+   * It will the redirect him to the login page
+   */
   updateLoginStatus() {
     this.userService.whoami().subscribe({
       next: () => this.isLogedIn = true,
@@ -25,6 +28,9 @@ export class LogoutComponent implements OnInit {
     this.updateLoginStatus();
   }
 
+  /**
+   * Method to logout
+   */
   logout() {
     this.userService.logout().subscribe();
     this.isLogedIn = false;

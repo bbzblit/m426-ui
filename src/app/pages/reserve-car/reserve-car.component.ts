@@ -86,10 +86,18 @@ export class ReserveCarComponent implements OnInit {
 
   }
 
+  /**
+   * Method to select a new car as the car that gets reserved
+   * @param car 
+   */
   loadCar(car: Car) {
     this.loadedCar = car;
   }
 
+  /**
+   * Simple Fulltext search method to filter all the different cars
+   * @param key 
+   */
   filterCar(key: string) {
     this.previewCars = this.cars.filter(car => car.licencePlate.indexOf(key) !== -1);
   }

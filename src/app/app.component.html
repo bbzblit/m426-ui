@@ -1,22 +1,25 @@
-<header id="root-header">
-  <img style="width: 18rem; margin-left: 1rem;" src="/assets/logo.png" alt="">
-  <div id="root-button-wrapper">
-    <app-menu></app-menu>
-    <app-logout></app-logout>
-  </div>
-</header>
-<main>
-  <router-outlet></router-outlet>
-</main>
-<footer>
-  <div id="copyright">
-    <p style="text-transform: uppercase;" >&copy; Carent 2023 </p>
-  </div>
-  <div id="warranty-message">
-    <span>This Website comes with <span class="important-text">absolutely no warranty</span> <br /> It might be the case
-      that it include outdatet or incorrect informations<br /> or even break your system</span>
-  </div>
-  <div id="footer-links">
-    <a [routerLink]="'/Impressum'" routerLinkActive="router-link-active">Impressum</a>
-  </div>
-</footer>
+<div id="content-wrapper">
+  <header id="root-header">
+    <img style="width: 18rem; margin-left: 1rem;" src="/assets/logo.png" alt="">
+    <div id="root-button-wrapper">
+      <app-menu></app-menu>
+      <app-logout></app-logout>
+    </div>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>
+    <div id="copyright">
+      <p style="text-transform: uppercase;">&copy; Carent 2023 </p>
+    </div>
+    <div id="warranty-message">
+      <span>This Website comes with <span class="important-text">absolutely no warranty</span> <br /> It might be the
+        case
+        that it include outdatet or incorrect informations<br /> or even break your system</span>
+    </div>
+    <div id="footer-links">
+      <a [routerLink]="'/Impressum'" routerLinkActive="router-link-active">Impressum</a>
+    </div>
+  </footer>
+</div>

@@ -61,6 +61,10 @@ export class ReservationListComponent implements OnInit {
     this.updatePreviewReservations();
   }
 
+  /**
+   * Method to revoke (delete) an existing Reservation
+   * @param id 
+   */
   revokeReservation(id: number) {
     this.reservationService.revokeReservation(id).subscribe({
       next: () => {
