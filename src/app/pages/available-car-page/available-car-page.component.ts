@@ -31,6 +31,10 @@ export class AvailableCarPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Method to check which cars are available during a specific period
+   * @returns void
+   */
   loadNewAvailableCars() {
     let form = this.range.getRawValue()
     if (!form.start || !form.end) {
@@ -40,6 +44,8 @@ export class AvailableCarPageComponent implements OnInit {
       return;
     }
     this.lastEnd = form.end;
+
+    //The Date needs to be in a Specific timezone dute to some "issues" (they would call it a feature) in the Json parser
     this.carService.getAvialbaleCars(new Date(form.start.getTime() - (form.start.getTimezoneOffset() * 60000)),
       new Date(form.end.getTime() - (form.end.getTimezoneOffset() * 60000))).subscribe(cars => { this.cars = cars; this.updateCarEvent.next(cars) });
   }

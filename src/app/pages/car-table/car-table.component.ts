@@ -18,11 +18,16 @@ export class CarTableComponent {
   @Input() public cars: Array<Car> = [];
   public index = 0;
   public pageSize = 10;
+
+  //Variables which defines if all the car should get loadet or if the get providet by a parent component false === loadet
   @Input() public overrideDefault = false;
   @Input() updateCarEvent?: Subject<Array<Car>>;
 
   constructor(private carService: CarService, private router: Router, private _snakBar: MatSnackBar) { }
 
+  /**
+   * Initial Method to fetch all the cars
+   */
   ngOnInit() {
     if (!this.overrideDefault) {
       this.reloadData();
@@ -33,6 +38,10 @@ export class CarTableComponent {
     }
   }
 
+  /**
+   * Method to update all the cars that get shown in the frontent
+   * It gets always then triggeret when new cars got loadet or the page gets changed in the frontent
+   */
   updatePreviewCars() {
     console.log(this.cars);
     const length = this.cars.length;

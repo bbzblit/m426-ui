@@ -55,6 +55,10 @@ export class UserOverviewComponent {
     this.updatePreviewUsers();
   }
 
+  /**
+   * Toggles the employee status of the user
+   * @param index 
+   */
   changeEmployeeStatus(index: number) {
     let user = this.previewUsers[index];
     user.employee = !user.employee;
@@ -63,9 +67,13 @@ export class UserOverviewComponent {
     });
   }
 
-  deleteUser(id: number){
+  /**
+   * Method to delete a new User
+   * @param id 
+   */
+  deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe({
-      next: () => {this.users = this.users.filter(user => user.id !== id); this.updatePreviewUsers();this._snakBar.open("Successful deleted the user", "Got It")}
+      next: () => { this.users = this.users.filter(user => user.id !== id); this.updatePreviewUsers(); this._snakBar.open("Successful deleted the user", "Got It") }
     })
   }
 }
