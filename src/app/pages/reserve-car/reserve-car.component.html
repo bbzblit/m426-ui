@@ -5,7 +5,7 @@
         <mat-form-field class="car-reservation-field">
             <mat-label>Car</mat-label>
             <input #selectedCar (input)="filterCar(selectedCar.value)" required type="text"
-                   placeholder="Select User"
+                   placeholder="Select Car"
                    matInput
                    [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">

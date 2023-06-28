@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/dataaccess/user.model';
 import { UserService } from 'src/app/service/user.service';
 
+
+/**
+ * Component to Sign Up a new User and create an account for it
+ */
 @Component({
   selector: 'app-sing-up',
   templateUrl: './sing-up.component.html',

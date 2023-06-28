@@ -9,6 +9,11 @@ import { Reservation } from 'src/app/dataaccess/reservation.model';
 import { ReservationService } from 'src/app/service/reservation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * Page to create a new reservation
+ * The user can choie between a list of cars 
+ * and also select the duration of the reservation
+ */
 @Component({
   selector: 'app-reserve-car',
   templateUrl: './reserve-car.component.html',

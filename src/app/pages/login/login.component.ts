@@ -4,6 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
+
+/**
+ * Page to log in a user
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

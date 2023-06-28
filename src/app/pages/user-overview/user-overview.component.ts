@@ -4,6 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/dataaccess/user.model';
 import { UserService } from 'src/app/service/user.service';
 
+
+/**
+ * Component to show all the user that exist in the application
+ */
 @Component({
   selector: 'app-user-overview',
   templateUrl: './user-overview.component.html',

@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
+
+/**
+ * Page to edit a car
+ */
 @Component({
   selector: 'app-car-edit',
   templateUrl: './car-edit.component.html',

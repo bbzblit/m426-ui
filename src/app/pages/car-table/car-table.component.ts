@@ -6,6 +6,10 @@ import { Observable, Subject } from 'rxjs';
 import { Car } from 'src/app/dataaccess/car.model';
 import { CarService } from 'src/app/service/car.service';
 
+
+/**
+ * Page to list all the car
+ */
 @Component({
   selector: 'app-car-table',
   templateUrl: './car-table.component.html',
@@ -43,7 +47,6 @@ export class CarTableComponent {
    * It gets always then triggeret when new cars got loadet or the page gets changed in the frontent
    */
   updatePreviewCars() {
-    console.log(this.cars);
     const length = this.cars.length;
     if (this.pageSize * (this.index + 1) > length) {
       this.previewCars = this.cars.slice(this.pageSize * this.index, length);

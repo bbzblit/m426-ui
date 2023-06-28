@@ -3,6 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Reservation } from 'src/app/dataaccess/reservation.model';
 import { ReservationService } from 'src/app/service/reservation.service';
 
+
+/**
+ * Page to show all the reservations
+ */
 @Component({
   selector: 'app-reservation-list',
   templateUrl: './reservation-list.component.html',

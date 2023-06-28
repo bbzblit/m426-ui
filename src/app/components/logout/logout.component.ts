@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
+
+/**
+ * Component to handle to logout
+ * This is not a pages because it gets rendert inside a other page
+ */
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
