@@ -3,22 +3,27 @@
   width: 100%;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 6rem 1fr 4rem;
-  grid-template-areas: header-content main-content footer-content;
+  grid-template-rows: 1fr 4rem;
+  grid-template-areas: main-content footer-content;
 }
 
 header {
   display: flex;
   height: 6rem;
- // grid-area: header-content;
+ //grid-area: header-content;
   width: 100%;
   background-color: var(--primary-dark);
+  position: fixed;
+  z-index: 69;
 }
 
 main {
+  margin-top: 6rem;
   width: 100% ;
-  height: 100%;
+  height: calc(100% - 6rem);
+  padding-bottom: 2rem;
   //grid-area: main-content;
+  
   background-color: var(--background-dark);
 }
 
