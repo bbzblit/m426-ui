@@ -69,7 +69,6 @@ export class ReserveCarComponent implements OnInit {
   reserveCar(event: Event) {
     event.preventDefault();
     let date = this.range.getRawValue();
-    console.log(date);
     if(!date.end || !date.start){
       return;
     }

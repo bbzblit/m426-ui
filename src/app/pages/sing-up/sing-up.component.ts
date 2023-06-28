@@ -30,7 +30,7 @@ export class SingUpComponent {
   register() {
     this.userService.register(this.registerForm.getRawValue() as User).subscribe({
       next: () => this.router.navigate(['login']), //Redirect to login after success
-      error: (error) => { console.log(error); this._snackBar.open(error.error.message || error.error.detail, "Okay") }, //Show error message...
+      error: (error) => { this._snackBar.open(error.error.message || error.error.detail, "Okay") }, //Show error message...
     })
 
   }
