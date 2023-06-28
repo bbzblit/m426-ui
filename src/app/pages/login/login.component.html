@@ -15,6 +15,6 @@
                 <strong>required</strong>!</mat-error>
         </mat-form-field>
         <a [routerLink]="['/sign-up']">Dont have an Accout yet? - Sign Up</a>
-        <button (click)="login($event)" mat-stroked-button>Login</button>
+        <button [disabled]="!password.value || !username.value" (click)="login($event)" mat-stroked-button>Login</button>
     </form>
 </div>
