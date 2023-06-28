@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { LogoutComponent } from './pages/logout/logout.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { SingUpComponent } from './pages/sing-up/sing-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
